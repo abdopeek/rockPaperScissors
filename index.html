@@ -1,0 +1,71 @@
+<script>
+    let choices = ["rock", "paper", "scissors"]
+    function getcomputerChoice() {
+        return choices[Math.floor(Math.random() * choices.length)];
+    };
+    function getUserChoice() {
+        let choice = prompt("Enter your choice: ");
+        choice = choice.toLowerCase();
+        if (choices.includes(choice) == false) {
+            return "Wrong input";
+        };
+        return choice;
+    };
+    function playRound(user = getUserChoice(), comp = getcomputerChoice()) {
+        if (user == "rock" && comp == "scissors") {
+            return [1, user, comp]
+        }
+        else if (user == "rock" && comp == "paper") {
+            return -[1, user, comp]
+        }
+        else if (user == "rock" && comp == "rock") {
+            return [0, user, comp]
+        }
+        else if (user == "paper" && comp == "scissors") {
+            return -[1, user, comp]
+        }
+        else if (user == "paper" && comp == "paper") {
+            return [0, user, comp]
+        }
+        else if (user == "paper" && comp == "rock") {
+            return [1, user, comp]
+        }
+        else if (user == "scissors" && comp == "rock") {
+            return -[1, user, comp]
+        }
+        else if (user == "scissors" && comp == "paper") {
+            return [1, user, comp]
+        }
+        else {
+            return [0, user, comp]
+        }
+    };
+    function game() {
+        let compwin = 0;
+        let userwin = 0;
+        while (compwin != 5 && userwin != 5) {
+            let play = playRound()
+            let userp = play[1]
+            let compp = play[2]
+            play = play[0]
+            if (play == 1) {
+                userwin++;
+                console.log(`You won this round! ${userp} beats ${compp}! You won: ${userwin} games`)
+            }
+            else if (play == -1) {
+                compwin++;
+                console.log(`You lost this round! ${compp} beats ${userp}! Computer won ${compwin} games.`)
+            }
+            else {
+                console.log(`Its a draw! You both played ${compp}`)
+            }
+        }
+        if (compwin == 5) {
+            return ("Computer won the game")
+        }
+        else {
+            return ("You won!")
+        }
+    }
+    console.log(game())
+</script>
