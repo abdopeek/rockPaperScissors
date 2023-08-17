@@ -1,0 +1,84 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #78788c;
+
+}
+
+button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+.header {
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+}
+
+.main {
+    text-align: center;
+    font-family: 'VT323', monospace;
+}
+
+.score-info {
+    font-size: 60px;
+}
+
+.game-message {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.btn {
+    border-radius: 10px;
+    background-color: #3e3e41;
+}
+
+.btn-square {
+    width: 160px;
+    height: 160px;
+    background-color: #3e3e41;
+}
+
+.scores-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.score-box {
+    width: 160px;   
+}
+
+.score {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.sign {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}

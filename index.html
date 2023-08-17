@@ -1,71 +1,49 @@
-<script>
-    let choices = ["rock", "paper", "scissors"]
-    function getcomputerChoice() {
-        return choices[Math.floor(Math.random() * choices.length)];
-    };
-    function getUserChoice() {
-        let choice = prompt("Enter your choice: ");
-        choice = choice.toLowerCase();
-        if (choices.includes(choice) == false) {
-            return "Wrong input";
-        };
-        return choice;
-    };
-    function playRound(user = getUserChoice(), comp = getcomputerChoice()) {
-        if (user == "rock" && comp == "scissors") {
-            return [1, user, comp]
-        }
-        else if (user == "rock" && comp == "paper") {
-            return -[1, user, comp]
-        }
-        else if (user == "rock" && comp == "rock") {
-            return [0, user, comp]
-        }
-        else if (user == "paper" && comp == "scissors") {
-            return -[1, user, comp]
-        }
-        else if (user == "paper" && comp == "paper") {
-            return [0, user, comp]
-        }
-        else if (user == "paper" && comp == "rock") {
-            return [1, user, comp]
-        }
-        else if (user == "scissors" && comp == "rock") {
-            return -[1, user, comp]
-        }
-        else if (user == "scissors" && comp == "paper") {
-            return [1, user, comp]
-        }
-        else {
-            return [0, user, comp]
-        }
-    };
-    function game() {
-        let compwin = 0;
-        let userwin = 0;
-        while (compwin != 5 && userwin != 5) {
-            let play = playRound()
-            let userp = play[1]
-            let compp = play[2]
-            play = play[0]
-            if (play == 1) {
-                userwin++;
-                console.log(`You won this round! ${userp} beats ${compp}! You won: ${userwin} games`)
-            }
-            else if (play == -1) {
-                compwin++;
-                console.log(`You lost this round! ${compp} beats ${userp}! Computer won ${compwin} games.`)
-            }
-            else {
-                console.log(`Its a draw! You both played ${compp}`)
-            }
-        }
-        if (compwin == 5) {
-            return ("Computer won the game")
-        }
-        else {
-            return ("You won!")
-        }
-    }
-    console.log(game())
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    
+    <div class="header">
+        ROCK PAPER SCISSORS
+    </div>
+
+    <div class="main">
+        <div class="scoreboard">
+            <h2 class="score-info" id="scoreInfo">Choose your weapon</h2>
+            <h3 class="game-message" id="gameMessage">First to score 5 points wins the game</h3>
+        </div>
+        <div class="scores-container">
+            <div class="score-box">
+                <div class="sign" id="playerSign">❔</div>
+                <p class="score" id="playerScore">Player score: 0</p>
+            </div>
+            <div class="score-box">
+                <div class="sign" id="computerSign">❔</div>
+                <p class="score" id="computerScore">Computer score: 0</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-square" id="rockBtn">
+              <div class="sign">✊</div>
+            </button>
+            <button class="btn btn-square" id="paperBtn">
+              <div class="sign">✋</div>
+            </button>
+            <button class="btn btn-square" id="scissorsBtn">
+              <div class="sign">✌</div>
+            </button>
+          </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
